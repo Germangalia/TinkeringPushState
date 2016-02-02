@@ -9,14 +9,30 @@
 Hola mon, mira la consola!
 
 <script>
-    (function() {
-        var stateObj = {foo: "bar"};
-        history.pushState(stateObj, "Bar", "bar.html");
-
-        var stateObj = {};
-        history.pushState(stateObj, "Bar2", "bar2.html");
-
+    var Mymodule = (function(){
+    var stateObj = {foo: "bar"};
+    var privateMethod = function(){
+        console.log('privateMethod');
+    };
+    return {
+        publicPropierty: "PropietatPublica",
+        publicMethodOne: function () {
+            console.log('publicMethodOne');
+        }
+        publicMethodTwo: function () {
+            console.log('publicMethodTwo');
+        }
+    };
+    console.debug(stateObj);
     }());
+
+    //console.debug(stateObj);
+    console.debug(Mymodule.stateObj);
+    //console.debug(Mymodule.privateMethod);
+    console.debug(Mymodule.publicPropierty);
+    console.debug(Mymodule.publicMethodOne);
+    console.debug(Mymodule.publicMethodTwo);
+
 </script>
 
 </body>
